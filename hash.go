@@ -1,0 +1,23 @@
+package main
+
+import (
+	"crypto/sha256"
+	"fmt"
+)
+
+func hashData(data string) string {
+	hash := sha256.New()
+	hash.Write([]byte(data))
+	return fmt.Sprintf("%x", hash.Sum(nil))
+}
+
+func main() {
+	record := "eyJhbGciOiJFUzI1NksiLCJ0eXAiOiJKV1QifQ.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiSGVhbHRoUmVjb3JkIl0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmV0aHI6MHgyZDkwODQ1OWFGQjQwNUU2MTYwNEE1MjkzNjBEM2VjYTE4NzQ4ZUY4IiwiaGVhbHRoUmVjb3JkIjp7ImNvbmRpdGlvbiI6IkRpYWJldGVzIFR5cGUgMSIsImlzc3VlZERhdGUiOiIyMDI0LTA5LTI2IiwiZG9jdG9yIjoiRHIuIEpvaG4gU21pdGgifX19LCJzdWIiOiJkaWQ6ZXRocjoweDJkOTA4NDU5YUZCNDA1RTYxNjA0QTUyOTM2MEQzZWNhMTg3NDhlRjgiLCJuYmYiOjE3MjczNTU1MTcsImlzcyI6ImRpZDpldGhyOjB4MmQ5MDg0NTlhRkI0MDVFNjE2MDRBNTI5MzYwRDNlY2ExODc0OGVGOCJ9.mg1I8s56zQnKCAwZ31TwUYkcL8hE8zQAd_Vn6ieaey1prfBuGu1M2dv_bI2BY9xrlhgw5Eym8YbCSix3sWlgcAE"
+	fmt.Println(hashData(record))
+}
+
+// #output hash1
+//005f184c7cbea3965c4d833b161b67528ce7e26152620a18f17a4e8df1e7a10a
+
+//from blockchain etherscan
+//005f184c7cbea3965c4d833b161b67528ce7e26152620a18f17a4e8df1e7a10a
